@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fullscreen Slideshow</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden; /* Prevent scrolling */
+    }
+
+    header, footer, nav {
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      top: 0;
+      padding: 20px 0;
+    }
+
+    nav {
+      top: 70px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: lightblue;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      bottom: 0;
+      padding: 20px 0;
+    }
+
+    .slideshow-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>እንኳን በ ሰላም መጡ የተከበሩ ሚስት ሆይ</</h1>
+  </header>
+
+  <nav>
+    <a href="2.html">እኔን በ ጥፊ መምታት ትፈልጊ የለ  😁 እንግዲያውስ ይሄን ንኪ</</a>
+  </nav>
+
+  <div class="slideshow-container">
+    <div class="slide active"><img src="i1.jpeg" alt="Slide 1"></div>
+    <div class="slide"><img src="i2.jpeg" alt="Slide 2"></div>
+    <div class="slide"><img src="i3.jpeg" alt="Slide 3"></div>
+    <div class="slide"><img src="i4.jpeg" alt="Slide 4"></div>
+    <div class="slide"><img src="i5.jpeg" alt="Slide 5"></div>
+    <div class="slide"><img src="i6.jpeg" alt="Slide 6"></div>
+  </div>
+
+  <footer>
+    <p>© 2025 Fullscreen Website</p>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function nextSlide() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }
+
+    setInterval(nextSlide, 4000); // 4 seconds per slide
+  </script>
+
+</body>
+</html>
